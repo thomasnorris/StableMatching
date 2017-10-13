@@ -10,17 +10,19 @@ namespace StableMatching_CSharp
     class Program
     {
         private const string FILE_NAME = "DataFile.txt";
+        private const string PROGRAM_NAME = "StableMatching.exe";
         private const char SPACE_DELIMITER = ' ';
         private const char COLON_DELIMITER = ':';
         private static int _numPeoplePerGender;
         static void Main(string[] args)
         {
+            Console.Write("Starting " + PROGRAM_NAME + "...\n\n");
+
             var file = ReadFile();
             var womenGroup = file.PeopleAndPreferences.FindAll(m => m.Gender == GenderEnum.Female);
             var menGroup = file.PeopleAndPreferences.FindAll(m => m.Gender == GenderEnum.Male);
 
-            RunMatching(menGroup, womenGroup);
-            
+            RunMatching(womenGroup, menGroup);
         }
 
         private static void RunMatching(List<Person> proposingGroup, List<Person> proposeeGroup)
@@ -42,12 +44,8 @@ namespace StableMatching_CSharp
                     }
 
                     if (!match.IsMarried)
-                    {
-                        person.IsMarried = true;
-                        person.SpouseName = match.Name;
-                        match.IsMarried = true;
-                        match.SpouseName = person.Name;
-                    }
+                        MarkAsMarried(person, match);
+
                     else
                     {
                         var currentSpouseIndex = match.SpousePreferenceNames.IndexOf(match.SpouseName);
@@ -58,8 +56,7 @@ namespace StableMatching_CSharp
                             var currentSpouse = proposingGroup.Find(m => m.Name == match.SpouseName);
                             currentSpouse.IsMarried = false;
                             currentSpouse.SpouseName = null;
-                            person.IsMarried = true;
-                            match.SpouseName = person.Name;
+                            MarkAsMarried(match, person);
                         }
                         else
                             proposals.Add(match);
@@ -69,6 +66,20 @@ namespace StableMatching_CSharp
 
             if (!proposingGroup.All(m => m.IsMarried == true))
                 RunMatching(proposingGroup, proposeeGroup);
+            else
+            {
+                foreach (var person in proposingGroup)
+                    Console.Write(person.Name + " is married to " + person.SpouseName + ".\n");
+            }
+            ExitProg();
+        }
+
+        private static void MarkAsMarried(Person person1, Person person2)
+        {
+            person1.IsMarried = true;
+            person1.SpouseName = person2.Name;
+            person2.IsMarried = true;
+            person2.SpouseName = person1.Name;
         }
 
         private static void MoveFirstElementToEnd<T>(List<T> list) where T : class
@@ -105,7 +116,7 @@ namespace StableMatching_CSharp
             }
             catch (Exception ex)
             {
-                ThrowAndExit(ex);
+                ExitProg(ex);
             }
 
             return new FileData();
@@ -132,11 +143,12 @@ namespace StableMatching_CSharp
             return toConvert.Trim(SPACE_DELIMITER).Split(splitDelimiter).ToList();
         } 
 
-        private static void ThrowAndExit(Exception ex)
+        private static void ExitProg(Exception ex = null)
         {
-            Console.WriteLine(ex.Message);
-            Console.WriteLine("Press any key to exit.");
-            if (string.IsNullOrWhiteSpace(Console.ReadLine())) ;
+            if (ex != null)
+                Console.WriteLine(ex.Message);
+            Console.WriteLine("\nPress any key to exit.");
+            if (string.IsNullOrWhiteSpace(Console.ReadLine()));
                 Environment.Exit(0);
         }
     }
