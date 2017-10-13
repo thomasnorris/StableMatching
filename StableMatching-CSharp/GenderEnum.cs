@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace StableMatching_CSharp
 {
-    public class Person
+    public enum GenderEnum
     {
-        public string Gender { get; set; }
-        public string Name { get; set; }
-        public List<string> Preferences { get; set; } 
+        Male = 0,
+        Female = 1
     }
 }
