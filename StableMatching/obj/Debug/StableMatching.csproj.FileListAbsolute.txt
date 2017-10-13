@@ -1,6 +1,6 @@
-C:\Users\CONORR\Desktop\StableMatching\StableMatching\bin\Debug\StableMatching-CSharp.exe.config
-C:\Users\CONORR\Desktop\StableMatching\StableMatching\obj\Debug\StableMatching-CSharp.exe
-C:\Users\CONORR\Desktop\StableMatching\StableMatching\obj\Debug\StableMatching-CSharp.pdb
-C:\Users\CONORR\Desktop\StableMatching\StableMatching\bin\Debug\StableMatching-CSharp.exe
-C:\Users\CONORR\Desktop\StableMatching\StableMatching\bin\Debug\StableMatching-CSharp.pdb
+C:\Users\CONORR\Desktop\StableMatching\StableMatching\bin\Debug\StableMatching.exe.config
+C:\Users\CONORR\Desktop\StableMatching\StableMatching\bin\Debug\StableMatching.exe
+C:\Users\CONORR\Desktop\StableMatching\StableMatching\bin\Debug\StableMatching.pdb
 C:\Users\CONORR\Desktop\StableMatching\StableMatching\obj\Debug\StableMatching.csprojResolveAssemblyReference.cache
+C:\Users\CONORR\Desktop\StableMatching\StableMatching\obj\Debug\StableMatching.exe
+C:\Users\CONORR\Desktop\StableMatching\StableMatching\obj\Debug\StableMatching.pdb

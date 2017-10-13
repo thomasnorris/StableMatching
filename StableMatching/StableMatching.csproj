@@ -7,8 +7,8 @@
     <ProjectGuid>{C7FEAE6A-C9AD-4C9F-AEA4-8BBE1AB256A5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StableMatching_CSharp</RootNamespace>
-    <AssemblyName>StableMatching-CSharp</AssemblyName>
+    <RootNamespace>StableMatching</RootNamespace>
+    <AssemblyName>StableMatching</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
