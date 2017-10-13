@@ -71,9 +71,9 @@ namespace StableMatching_CSharp
             // --Recursively run through the program if not all of the proposing group is married (i.e. if someone had their spouse taken away from them)
             if (!proposingGroup.All(m => m.IsMarried == true))
                 RunMatching(proposingGroup, proposeeGroup);
-
-            foreach (var person in proposingGroup)
-                Console.Write(person.Name + " is married to " + person.SpouseName + ".\n");
+            else
+                foreach (var person in proposingGroup)
+                    Console.Write(person.Name + " is married to " + person.SpouseName + ".\n");
         }
 
         private static void MarkAsMarried(Person person1, Person person2)
