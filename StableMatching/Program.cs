@@ -42,6 +42,7 @@ namespace StableMatching_CSharp
                         if (!proposals.Contains(match))
                             foundMatch = true;
                         else
+                            // --Move the married person to the back of their preferences in order to grab the next one who might not be married
                             MoveFirstElementToEnd(proposer.SpousePreferenceNames);
                     }
 
@@ -50,6 +51,7 @@ namespace StableMatching_CSharp
 
                     else
                     {
+                        // --Compare preference of current spouse and new spouse, booting the current spouse out if the potential spouse is a higher preference
                         var currentSpouseIndex = match.SpousePreferenceNames.IndexOf(match.SpouseName);
                         var potentialSpouseIndex = match.SpousePreferenceNames.IndexOf(proposer.Name);
 
@@ -66,12 +68,12 @@ namespace StableMatching_CSharp
                 }
             }
 
+            // --Recursively run through the program if not all of the proposing group is married (i.e. if someone had their spouse taken away from them)
             if (!proposingGroup.All(m => m.IsMarried == true))
                 RunMatching(proposingGroup, proposeeGroup);
 
             foreach (var person in proposingGroup)
                 Console.Write(person.Name + " is married to " + person.SpouseName + ".\n");
-
         }
 
         private static void MarkAsMarried(Person person1, Person person2)
@@ -116,6 +118,7 @@ namespace StableMatching_CSharp
             }
             catch (Exception ex)
             {
+                // --Catches and file reading exceptions and logs them to the console instead of crashing
                 ExitProg(ex);
             }
 
@@ -149,8 +152,8 @@ namespace StableMatching_CSharp
                 Console.WriteLine(ex.Message);
 
             Console.WriteLine("\nPress any key to exit.");
-            if (string.IsNullOrWhiteSpace(Console.ReadLine()));
-                Environment.Exit(0);
+            Console.ReadLine();
+            Environment.Exit(0);
         }
     }
 }
