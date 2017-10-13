@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StableMatching-CSharp", "StableMatching-CSharp\StableMatching-CSharp.csproj", "{C7FEAE6A-C9AD-4C9F-AEA4-8BBE1AB256A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StableMatching", "StableMatching\StableMatching.csproj", "{C7FEAE6A-C9AD-4C9F-AEA4-8BBE1AB256A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

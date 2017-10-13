@@ -10,3 +10,6 @@ C:\Users\CONORR\Desktop\LDS-Archive\StableMatching-CSharp\obj\Debug\StableMatchi
 C:\Users\CONORR\Desktop\LDS-Archive\StableMatching-CSharp\bin\Debug\StableMatching-CSharp.exe.config
 C:\Users\CONORR\Desktop\LDS-Archive\StableMatching-CSharp\bin\Debug\StableMatching-CSharp.exe
 C:\Users\CONORR\Desktop\LDS-Archive\StableMatching-CSharp\bin\Debug\StableMatching-CSharp.pdb
+C:\Users\CONORR\Desktop\StableMatching\StableMatching-CSharp\bin\Debug\StableMatching-CSharp.exe.config
+C:\Users\CONORR\Desktop\StableMatching\StableMatching-CSharp\obj\Debug\StableMatching-CSharp.exe
+C:\Users\CONORR\Desktop\StableMatching\StableMatching-CSharp\obj\Debug\StableMatching-CSharp.pdb
