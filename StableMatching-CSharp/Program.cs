@@ -16,6 +16,66 @@ namespace StableMatching_CSharp
         static void Main(string[] args)
         {
             var file = ReadFile();
+            var womenGroup = file.PeopleAndPreferences.FindAll(m => m.Gender == GenderEnum.Female);
+            var menGroup = file.PeopleAndPreferences.FindAll(m => m.Gender == GenderEnum.Male);
+
+            RunMatching(menGroup, womenGroup);
+            
+        }
+
+        private static void RunMatching(List<Person> proposingGroup, List<Person> proposeeGroup)
+        {
+            foreach (var person in proposingGroup)
+            {
+                var proposals = new List<Person>();
+                while (!person.IsMarried)
+                {
+                    var foundMatch = false;
+                    Person match = null;
+                    while (!foundMatch)
+                    {
+                        match = proposeeGroup.Find(x => x.Name == person.SpousePreferenceNames.First());
+                        if (!proposals.Contains(match))
+                            foundMatch = true;
+                        else
+                            MoveFirstElementToEnd(person.SpousePreferenceNames);
+                    }
+
+                    if (!match.IsMarried)
+                    {
+                        person.IsMarried = true;
+                        person.SpouseName = match.Name;
+                        match.IsMarried = true;
+                        match.SpouseName = person.Name;
+                    }
+                    else
+                    {
+                        var currentSpouseIndex = match.SpousePreferenceNames.IndexOf(match.SpouseName);
+                        var potentialSpouseIndex = match.SpousePreferenceNames.IndexOf(person.Name);
+
+                        if (potentialSpouseIndex < currentSpouseIndex)
+                        {
+                            var currentSpouse = proposingGroup.Find(m => m.Name == match.SpouseName);
+                            currentSpouse.IsMarried = false;
+                            currentSpouse.SpouseName = null;
+                            person.IsMarried = true;
+                            match.SpouseName = person.Name;
+                        }
+                        else
+                            proposals.Add(match);
+                    }
+                }
+            }
+
+            if (!proposingGroup.All(m => m.IsMarried == true))
+                RunMatching(proposingGroup, proposeeGroup);
+        }
+
+        private static void MoveFirstElementToEnd<T>(List<T> list) where T : class
+        {
+            var temp = list[0];
+            list.Remove(temp);
+            list.Add(temp);
         }
 
         private static FileData ReadFile()
@@ -59,16 +119,17 @@ namespace StableMatching_CSharp
                 var line = TrimAndConvertStringToList(sr.ReadLine(), COLON_DELIMITER);
                 personList.Add(new Person
                 {
-                    Gender = gender.ToString(),
+                    Gender = gender,
                     Name = line[0],
-                    Preferences = TrimAndConvertStringToList(line[1], SPACE_DELIMITER)
+                    SpousePreferenceNames = TrimAndConvertStringToList(line[1], SPACE_DELIMITER),
+                    IsMarried = false
                 });
             }
         }
 
-        private static List<string> TrimAndConvertStringToList(string toConvert, char delimiter)
+        private static List<string> TrimAndConvertStringToList(string toConvert, char splitDelimiter)
         {
-            return toConvert.Trim(SPACE_DELIMITER).Split(delimiter).ToList();
+            return toConvert.Trim(SPACE_DELIMITER).Split(splitDelimiter).ToList();
         } 
 
         private static void ThrowAndExit(Exception ex)

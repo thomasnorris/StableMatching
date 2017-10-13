@@ -8,8 +8,10 @@ namespace StableMatching_CSharp
 {
     public class Person
     {
-        public string Gender { get; set; }
+        public GenderEnum Gender { get; set; }
         public string Name { get; set; }
-        public List<string> Preferences { get; set; } 
+        public List<string> SpousePreferenceNames { get; set; } 
+        public bool IsMarried { get; set; }
+        public string SpouseName { get; set; }
     }
 }
