@@ -17,7 +17,7 @@ namespace StableMatching_CSharp
 
         static void Main(string[] args)
         {
-            Console.Write("Starting " + PROGRAM_NAME + "...\n\n");
+            Console.Write("Starting " + PROGRAM_NAME + "\n\n");
 
             var file = ReadFile();
             var womenGroup = file.PeopleAndPreferences.FindAll(m => m.Gender == GenderEnum.Female);

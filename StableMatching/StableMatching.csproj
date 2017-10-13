@@ -43,9 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileData.cs" />
-    <Compile Include="GenderEnum.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Objects\FileData.cs" />
+    <Compile Include="Objects\GenderEnum.cs" />
+    <Compile Include="Objects\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
