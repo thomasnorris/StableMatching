@@ -93,8 +93,7 @@ namespace StableMatching_CSharp
 
         private static FileData ReadFile()
         {
-            var baseDirectory = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString());
-            var fileLocation = string.Concat(baseDirectory, @"\", FILE_NAME);
+            var fileLocation = string.Concat(Directory.GetCurrentDirectory(), @"\", FILE_NAME);
             try
             {
                 using (var sr = new StreamReader(fileLocation))
