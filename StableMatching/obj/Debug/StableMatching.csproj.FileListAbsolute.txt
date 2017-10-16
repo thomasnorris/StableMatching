@@ -1,0 +1,6 @@
+C:\Git-Sandbox\StableMatching\StableMatching\bin\Debug\StableMatching.exe.config
+C:\Git-Sandbox\StableMatching\StableMatching\bin\Debug\StableMatching.exe
+C:\Git-Sandbox\StableMatching\StableMatching\bin\Debug\StableMatching.pdb
+C:\Git-Sandbox\StableMatching\StableMatching\obj\Debug\StableMatching.csprojResolveAssemblyReference.cache
+C:\Git-Sandbox\StableMatching\StableMatching\obj\Debug\StableMatching.exe
+C:\Git-Sandbox\StableMatching\StableMatching\obj\Debug\StableMatching.pdb
