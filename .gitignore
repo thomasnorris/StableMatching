@@ -1,3 +1,9 @@
 .vs
 
 **/obj*
+
+**/Debug/*
+!**/DataFile.txt
+!**/StableMatching.exe
+
+**/Release/*
