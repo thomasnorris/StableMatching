@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using StableMatching.Objects;
 
-namespace StableMatching_CSharp
+namespace StableMatching
 {
     class Program
     {
@@ -69,7 +68,7 @@ namespace StableMatching_CSharp
             }
 
             // --Recursively run through the program if not all of the proposing group is married (i.e. if someone had their spouse taken away from them)
-            if (!proposingGroup.All(m => m.IsMarried == true))
+            if (proposingGroup.Any(m => !m.IsMarried))
                 RunMatching(proposingGroup, proposeeGroup);
             else
                 foreach (var person in proposingGroup)
