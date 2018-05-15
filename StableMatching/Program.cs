@@ -92,10 +92,9 @@ namespace StableMatching
 
         private static FileData ReadFile()
         {
-            var fileLocation = string.Concat(Directory.GetCurrentDirectory(), @"\", FILE_NAME);
             try
             {
-                using (var sr = new StreamReader(fileLocation))
+                using (var sr = new StreamReader(FILE_NAME))
                 {
                     var fileData = new FileData
                     {
